@@ -71,6 +71,10 @@ func TestResourceProvider_stop(t *testing.T) {
 	case <-time.After(50 * time.Millisecond):
 	}
 
+	if err != nil {
+		t.Fatalf("error on provisioner apply: %s", err)
+	}
+
 	// Stop it
 	p.Stop()
 
